@@ -13,10 +13,12 @@ def run_daily_report():
     """执行ruyisdk.cn每日报告任务"""
     config = load_config()
     
-    FORUM_URL = "https://ruyisdk.cn/"
     posts = get_ruyisdk_posts(FORUM_URL)
     if not posts:
-        print("无新帖子，跳过")
+        # 没有新帖子时发送通知消息
+        no_new_posts_message = "今日无新动态，敬请期待明日更新！"
+        send_to_feishu(no_new_posts_message, webhook_url=config["feishu_webhook_url"])
+        print("已发送无新动态通知")
         return
     
     summary = generate_summary(posts, api_key=config["chatbox_api_key"])
