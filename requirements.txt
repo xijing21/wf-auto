@@ -1,0 +1,14 @@
+# 基础网络请求
+requests>=2.31.0
+
+# 网页解析
+beautifulsoup4>=4.12.2
+
+# AI调用（openai兼容）
+openai>=1.30.0
+
+# 日志和调试
+logging>=0.5.1.2
+
+# 可选：日期时间处理
+python-dateutil>=2.9.0
