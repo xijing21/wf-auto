@@ -1,5 +1,5 @@
 from utils.crawler import get_ruyisdk_posts
-from utils.ai_client import generate_summary
+from utils.chatbox_client import generate_summary
 from utils.feishu_sender import send_to_feishu
 from utils.config_loader import load_config
 from .config import FORUM_URL  # 任务特定配置
