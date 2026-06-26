@@ -13,6 +13,7 @@ def run_daily_report():
     """执行ruyisdk.cn每日报告任务"""
     config = load_config()
     
+    FORUM_URL = "https://ruyisdk.cn/"
     posts = get_ruyisdk_posts(FORUM_URL)
     if not posts:
         # 没有新帖子时发送通知消息
