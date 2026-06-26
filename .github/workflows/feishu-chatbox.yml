@@ -1,4 +1,4 @@
-name: 飞书+Chatbox自动化
+name: Feishu&Chatbox Connect
 
 on:
   schedule:
@@ -11,11 +11,6 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
 
       - name: 设置Python
         uses: actions/setup-python@v4
