@@ -13,13 +13,13 @@ def run_daily_report():
     """执行ruyisdk.cn每日报告任务"""
     config = load_config()
     FORUM_URL = "https://ruyisdk.cn/"
-    DAYS = config.get("DAYS", 1)          # 从 config 读取天数，默认 1
+    DAYS = config.get("DAYS", 7)
 
     posts = get_ruyisdk_posts(FORUM_URL, days=DAYS)   # ← 仅此处变化
     if not posts:
         no_new_posts_message = f"最近{DAYS}日无新动态，敬请期待更新！"
         send_to_feishu(no_new_posts_message, webhook_url=config["feishu_webhook_url"])
-        print("已发送无新动态通知")
+        print("已发送无新动态通知（最近{DAYS}日）")
         return
     summary = generate_summary(posts, api_key=config["chatbox_api_key"])
     send_to_feishu(summary, webhook_url=config["feishu_webhook_url"])

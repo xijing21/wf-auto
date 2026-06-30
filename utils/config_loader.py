@@ -6,5 +6,6 @@ def load_config():
     return {
         "chatbox_api_key": os.getenv("CHATBOX_API_KEY"),
         "feishu_webhook_url": os.getenv("FEISHU_WEBHOOK_URL"),
-        "default_model": "DeepSeek-V4-Flash"
+        "default_model": "DeepSeek-V4-Flash",
+        "DAYS": int(os.getenv("DAYS", "7"))
     }
